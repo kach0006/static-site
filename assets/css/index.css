@@ -1,0 +1,12 @@
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  width: 50vw;
+  gap: 10px;
+}
+
+.category-item {
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 20px;
+}
