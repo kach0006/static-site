@@ -1,7 +1,7 @@
 .category-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, auto));
-  width: 50vw;
+  margin: 0 20%;
   gap: 10px;
 }
 
