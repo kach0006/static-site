@@ -9,6 +9,18 @@
 
 html {
   font-family: "Poppins-Regular";
+  text-decoration: none;
+  font-size: 14px;
+}
+
+body {
+  width: 90%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .product-image img {
@@ -19,23 +31,24 @@ html {
 
 .product-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
   grid-auto-rows: auto;
-  margin: 0 20%;
-  gap: 0 5%;
+  gap: 25px;
+  margin: 0;
 }
 
 .product-list-item {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 6;
   border-radius: 20px;
   border: 1px solid black;
   padding-bottom: 20px;
+  background-color: #ffffff;
 }
 
 .product-list-image-container {
-  max-width: 200px;
+  max-width: 250px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -43,17 +56,36 @@ html {
   border-top-right-radius: 20px;
 }
 
-.product-list-info-container {
-  display: grid;
-  grid-template-rows: auto auto auto auto auto;
-  row-gap: 5px;
-  padding-top: 10px;
-  padding-left: 5px;
+.product-title,
+.product-classifiers,
+.product-price,
+.product-sale-price,
+.product-about {
+  padding-left: 8px;
+}
+
+.product-about {
+  font-family: "Poppins-SemiBold";
+  text-decoration: underline;
+}
+
+.product-price,
+.product-sale-price {
+  padding-top: 5px;
+}
+
+.product-tag {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 10px;
 }
 
 .product-classifiers {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .product-discount-tag {
@@ -102,7 +134,8 @@ html {
   content: "Price: ";
 }
 
-.product-price::after .product-sale-price::after {
+.product-price::after,
+.product-sale-price::after {
   content: " DKK";
 }
 
@@ -111,7 +144,6 @@ html {
 }
 
 .product-title {
-  margin-top: 10px;
   padding-left: 5px;
   font-family: "Poppins-SemiBold";
 }
