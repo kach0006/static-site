@@ -31,6 +31,6 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${prodId}`)
   .then((prod) => {
     breadcrumbs.innerHTML = `
     <a href="index.html">Start</a><a href="product-list.html">All products</a
-      ><a href="product.html">${prod.articletype}</a><a href="product.html">${prod.productdisplayname}</a>
+      ><a href="product.html">${prod.articletype}</a><a href="product.html?id=${prod.id}">${prod.productdisplayname}</a>
     `;
   });
