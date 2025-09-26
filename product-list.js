@@ -1,6 +1,6 @@
 const prodListContainer = document.querySelector(".product-list-container");
 
-fetch("https://kea-alt-del.dk/t7/api/products")
+fetch("https://kea-alt-del.dk/t7/api/products?limit=50")
   .then((res) => res.json())
   .then(showProds);
 
