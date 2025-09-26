@@ -4,7 +4,7 @@ const breadcrumbs = document.querySelector(".breadcrumbs");
 const params = new URLSearchParams(window.location.search);
 const prodId = params.get("id");
 
-fetch("https://kea-alt-del.dk/t7/api/products/1164")
+fetch(`https://kea-alt-del.dk/t7/api/products/${prodId}`)
   .then((res) => res.json())
   //   .then((prod) => {
   //     console.log(prod.articletype);
