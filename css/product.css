@@ -45,11 +45,11 @@ h2 {
 }
 
 .product-sale-price::before {
-  content: "Sale price: ";
+  content: "Sale price:\00a0";
 }
 
 .product-sale-price::after {
-  content: " DKK";
+  content: "\00a0 DKK";
 }
 
 .product-price::after {

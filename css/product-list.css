@@ -130,6 +130,17 @@ a {
   color: #ffffff;
 }
 
+.product-stock-tag.active::before {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  content: "Out of stock";
+}
+
+.product-discount-tag.active::after {
+  content: "%";
+}
+
 .product-price::before {
   content: "Price: ";
 }
