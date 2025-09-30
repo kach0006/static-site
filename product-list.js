@@ -6,13 +6,32 @@ const listHeader = (document.querySelector(".list-header").textContent = categor
 
 const prodListContainer = document.querySelector(".product-list-container");
 
+document.querySelectorAll("button").forEach((knap) => knap.addEventListener("click", showFiltered));
+
+function showFiltered() {
+  console.log(showFiltered);
+  const gender = this.dataset.gender;
+  if (gender == "All") {
+    showProds(allData);
+  } else {
+    const selection = allData.filter((product) => product.gender == gender);
+    showProds(selection);
+  }
+}
+
+let allData;
+
 fetch(`https://kea-alt-del.dk/t7/api/products?category=${category}&limit=50`)
   .then((res) => res.json())
-  .then(showProds);
+  .then((data) => {
+    allData = data;
+    showProds(allData);
+  });
 
 function showProds(prods) {
+  prodListContainer.innerHTML = "";
   prods.forEach((element) => {
-    console.log(element);
+    // console.log(element);
     prodListContainer.innerHTML += `
     
       <!-- product-list-item starts here -->
