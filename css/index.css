@@ -17,6 +17,12 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+
+.reverse {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
 .category-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, auto));

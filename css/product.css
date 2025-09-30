@@ -18,6 +18,11 @@ body {
   margin: 0 auto;
 }
 
+.reverse {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
 .breadcrumbs a + a::before {
   display: inline-flex;
   flex-direction: row;
@@ -91,4 +96,9 @@ h2 {
   border: 1px solid black;
   padding: 10px;
   border-radius: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
