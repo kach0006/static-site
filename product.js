@@ -18,19 +18,21 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${prodId}`)
       </div>
       <div class="product-info-container">
         <h2 class="product-title">${prod.productdisplayname}</h2>
+        <div class="product-brand">${prod.brandname}</div>
         <div class="product-sku">${prod.id}</div>
-        <div class="product-price">${prod.price}</div>
+        <div class="product-price"><span class="${prod.discount && "price-struck"}"> ${
+      prod.price
+    } DKK</span></div>
         <div class="product-sale-price ${prod.discount && "active"}">${Math.round(
       prod.price - (prod.price * prod.discount) / 100
     )}</div>
-        <div class="product-brand">${prod.brandname}</div>
         <div><a class="basket-btn" href="">Add to basket</a></div>
       </div>`;
     return prod;
   })
   .then((prod) => {
     breadcrumbs.innerHTML = `
-    <a href="index.html">Start</a><a href="product-list.html">All products</a
-      ><a href="product.html">${prod.articletype}</a><a href="product.html?id=${prod.id}">${prod.productdisplayname}</a>
+    <a href="index.html">Start</a><a href="index.html">Categories</a
+      ><a href="product-list.html?category=${prod.category}">${prod.category}</a><a href="product.html?id=${prod.id}">${prod.productdisplayname}</a>
     `;
   });

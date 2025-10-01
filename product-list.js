@@ -3,6 +3,8 @@ const category = params.get("category");
 console.log(category);
 
 const listHeader = (document.querySelector(".list-header").textContent = category);
+// const breadcrumb = (document.querySelector(".breadcrumb").textContent = category);
+const breadcrumbs = document.querySelector(".breadcrumbs");
 
 const prodListContainer = document.querySelector(".product-list-container");
 
@@ -26,6 +28,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products?category=${category}&limit=50`)
   .then((data) => {
     allData = data;
     showProds(allData);
+    showBreadcrumbs(allData);
   });
 
 function showProds(prods) {
@@ -67,4 +70,12 @@ function showProds(prods) {
       </div>
 <!-- product-list-item ends here -->`;
   });
+}
+
+function showBreadcrumbs(crumbs) {
+  breadcrumbs.innerHTML = "";
+  breadcrumbs.innerHTML += `
+<a href="index.html">Start</a><a href="index.html">Categories</a
+      ><a class="breadcrumb" href="product-list.html?category=${category}">${category}</a>
+`;
 }
