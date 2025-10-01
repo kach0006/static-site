@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product list</title>
     <script src="product-list.js" defer></script>
+    <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/product-list.css" />
   </head>
   <body>
-    <a href="index.html"
-      ><h1>Fashion<span class="reverse">R</span>Us</h1></a
-    >
-    <section class="filter-section">
-      <button data-gender="All" class="filter-btn">All</button>
-      <button data-gender="Unisex" class="filter-btn">Unisex</button>
-      <button data-gender="Women" class="filter-btn">Women</button>
-      <button data-gender="Men" class="filter-btn">Men</button>
-    </section>
+    <header>
+      <div class="logo-container">
+        <a href="index.html">
+          <h1 class="logo-font"><a href="index.html">Fashion<span class="reverse">R</span>Us</a></h1>
+        
+      </div>
+    </header>
+    <main>
+      <div class="breadcrumbs">
+      <a href="index.html">Start</a><a href="index.html">Categories</a
+      ><a class="breadcrumb" href="product.html"></a>
+    </div>
     <h2 class="list-header"></h2>
-    <div class="product-list-container"></div>
+      <section class="filter-section">
+        <button data-gender="All" class="filter-btn">All</button>
+        <button data-gender="Unisex" class="filter-btn">Unisex</button>
+        <button data-gender="Women" class="filter-btn">Women</button>
+        <button data-gender="Men" class="filter-btn">Men</button>
+      </section>
+      <div class="product-list-container"></div>
+    </main>
+    <footer></footer>
   </body>
 </html>

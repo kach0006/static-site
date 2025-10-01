@@ -1,48 +1,36 @@
-@font-face {
-  font-family: "Poppins-Regular";
-  src: url(../assets/fonts/Poppins-Regular.ttf) format("truetype");
+.breadcrumbs {
+  margin-bottom: 20px;
 }
-@font-face {
-  font-family: "Poppins-SemiBold";
-  src: url(../assets/fonts/Poppins-SemiBold.ttf) format("truetype");
-}
-
-html {
-  font-family: "Poppins-Regular";
-  text-decoration: none;
-  font-size: 14px;
-}
-
-body {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.reverse {
-  display: inline-block;
-  transform: scaleX(-1);
-}
-
-.breadcrumbs a + a::before {
-  display: inline-flex;
-  flex-direction: row;
-  content: ">";
-  padding: 0 10px;
-  color: #888;
-  text-decoration: none;
-}
-
 .product-price::before {
   content: "Price: ";
 }
 
 h2 {
   max-width: 450px;
+  font-size: 35px;
+}
+
+.product-sku {
+  font-size: 14px;
+}
+
+.product-brand {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.product-price,
+.product-sale-price {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.product-price {
+  margin-top: 20px;
 }
 
 .product-sku::before {
   content: "ID: ";
-  font-size: 12px;
 }
 
 .product-price::before {
@@ -55,10 +43,6 @@ h2 {
 
 .product-sale-price::after {
   content: "\00a0 DKK";
-}
-
-.product-price::after {
-  content: " DKK";
 }
 
 .product-sale-price {
@@ -93,12 +77,23 @@ h2 {
 
 .basket-btn {
   text-decoration: none;
-  border: 1px solid black;
-  padding: 10px;
+  border: 1px solid var(--main-font-color);
+  padding: 10px 20px;
   border-radius: 20px;
+  background-color: var(--white);
+  font-size: 20px;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.product-info-container > div:last-child {
+  margin-top: 30px;
+}
+
+.price-struck {
+  text-decoration-line: line-through;
+  color: var(--red);
 }

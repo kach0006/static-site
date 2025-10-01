@@ -7,34 +7,20 @@
   src: url(../assets/fonts/Poppins-SemiBold.ttf) format("truetype");
 }
 
-html {
-  font-family: "Poppins-Regular";
-  text-decoration: none;
-  font-size: 14px;
-}
-
-body {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.reverse {
-  display: inline-block;
-  transform: scaleX(-1);
-}
-
 .category-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, auto));
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  margin: 10px auto;
   gap: 10px;
+  font-size: 24px;
 }
 
-a {
+main a {
   border-radius: 20px;
   border: 1px solid black;
   padding: 20px;
   text-decoration: none;
   color: black;
+  background-color: var(--white);
 }
