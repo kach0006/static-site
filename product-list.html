@@ -24,12 +24,23 @@
     </div>
     <h2 class="list-header"></h2>
       <section class="filter-section">
+        <p>Filter:</p>
         <button data-gender="All" class="filter-btn">All</button>
         <button data-gender="Unisex" class="filter-btn">Unisex</button>
         <button data-gender="Women" class="filter-btn">Women</button>
         <button data-gender="Men" class="filter-btn">Men</button>
       </section>
+      <section class="range-section">
+        <p>Price filter:</p>
+        <div>
+          <span id="min">1</span>
+          <input id="range" type="range" min="1" max="10000" value="10000">
+          <span id="max">10000</span>
+          <span id="currency">DKK</span>
+        </div>
+      </section>
       <section class="sorting-section">
+        <p>Sort:</p>
         <button data-direction="lo-hi">Low to high price</button>
         <button data-direction="hi-lo">High to low price</button>
       </section>
