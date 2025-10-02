@@ -8,25 +8,38 @@ const breadcrumbs = document.querySelector(".breadcrumbs");
 
 const prodListContainer = document.querySelector(".product-list-container");
 
-document.querySelectorAll("button").forEach((knap) => knap.addEventListener("click", showFiltered));
+document.querySelector(".filter-section").addEventListener("click", showFiltered);
+document.querySelector(".sorting-section").addEventListener("click", showSorted);
 
-function showFiltered() {
-  console.log(showFiltered);
-  const gender = this.dataset.gender;
-  if (gender == "All") {
-    showProds(allData);
+function showSorted(event) {
+  const direction = event.target.dataset.direction;
+  if (direction == "lo-hi") {
+    currentData.sort((a, b) => a.price - b.price);
+    console.log(allData);
   } else {
-    const selection = allData.filter((product) => product.gender == gender);
-    showProds(selection);
+    currentData.sort((a, b) => b.price - a.price);
   }
+  showProds(currentData);
 }
 
-let allData;
+function showFiltered(event) {
+  console.log(event.target.dataset.gender);
+  const gender = event.target.dataset.gender;
+  if (gender == "All") {
+    currentData = allData;
+  } else {
+    const selection = allData.filter((product) => product.gender == gender);
+    currentData = selection;
+  }
+  showProds(currentData);
+}
+
+let allData, currentData;
 
 fetch(`https://kea-alt-del.dk/t7/api/products?category=${category}&limit=50`)
   .then((res) => res.json())
   .then((data) => {
-    allData = data;
+    allData = currentData = data;
     showProds(allData);
     showBreadcrumbs(allData);
   });
