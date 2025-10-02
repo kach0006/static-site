@@ -12,6 +12,7 @@ document.querySelector(".filter-section").addEventListener("click", showFiltered
 document.querySelector(".sorting-section").addEventListener("click", showSorted);
 
 function showSorted(event) {
+  if (event.target.tagName !== "BUTTON") return;
   const direction = event.target.dataset.direction;
   if (direction == "lo-hi") {
     currentData.sort((a, b) => a.price - b.price);
@@ -23,6 +24,7 @@ function showSorted(event) {
 }
 
 function showFiltered(event) {
+  if (event.target.tagName !== "BUTTON") return;
   console.log(event.target.dataset.gender);
   const gender = event.target.dataset.gender;
   if (gender == "All") {
@@ -35,6 +37,21 @@ function showFiltered(event) {
 }
 
 let allData, currentData;
+
+const myRange = document.querySelector("#range");
+const maxSum = document.querySelector("#max");
+const minSum = document.querySelector("#min");
+
+myRange.addEventListener("input", (e) => (maxSum.textContent = e.target.value));
+myRange.addEventListener("change", filterByPrice);
+
+function filterByPrice(e) {
+  const maxPrice = Number(e.target.value);
+  const filtered = allData.filter((product) => product.price <= maxPrice);
+  currentData = filtered;
+  showProds(currentData);
+  console.log(e.target.value);
+}
 
 fetch(`https://kea-alt-del.dk/t7/api/products?category=${category}&limit=50`)
   .then((res) => res.json())

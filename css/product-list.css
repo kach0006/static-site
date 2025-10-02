@@ -172,4 +172,27 @@ button:hover {
   outline: 2px solid var(--white);
 }
 
-/* breadcrumbs a + a::before */
+.filter-section,
+.sorting-section,
+.range-section {
+  display: flex;
+  align-content: center;
+  font-size: 22px;
+}
+
+.filter-section p,
+.sorting-section p,
+.range-section p {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+#range {
+  accent-color: var(--blue);
+}
+
+#min,
+#max,
+#currency {
+  font-size: 18px;
+}
