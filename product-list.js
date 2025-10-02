@@ -14,32 +14,32 @@ document.querySelector(".sorting-section").addEventListener("click", showSorted)
 function showSorted(event) {
   const direction = event.target.dataset.direction;
   if (direction == "lo-hi") {
-    allData.sort((a, b) => a.price - b.price);
+    currentData.sort((a, b) => a.price - b.price);
     console.log(allData);
   } else {
-    allData.sort((a, b) => b.price - a.price);
+    currentData.sort((a, b) => b.price - a.price);
   }
-  const sorted = allData.filter((product) => product.direction == direction);
-  showProds(allData);
+  showProds(currentData);
 }
 
 function showFiltered(event) {
   console.log(event.target.dataset.gender);
   const gender = event.target.dataset.gender;
   if (gender == "All") {
-    showProds(allData);
+    currentData = allData;
   } else {
     const selection = allData.filter((product) => product.gender == gender);
-    showProds(selection);
+    currentData = selection;
   }
+  showProds(currentData);
 }
 
-let allData;
+let allData, currentData;
 
 fetch(`https://kea-alt-del.dk/t7/api/products?category=${category}&limit=50`)
   .then((res) => res.json())
   .then((data) => {
-    allData = data;
+    allData = currentData = data;
     showProds(allData);
     showBreadcrumbs(allData);
   });
