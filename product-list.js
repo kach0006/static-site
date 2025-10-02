@@ -8,11 +8,24 @@ const breadcrumbs = document.querySelector(".breadcrumbs");
 
 const prodListContainer = document.querySelector(".product-list-container");
 
-document.querySelectorAll("button").forEach((knap) => knap.addEventListener("click", showFiltered));
+document.querySelector(".filter-section").addEventListener("click", showFiltered);
+document.querySelector(".sorting-section").addEventListener("click", showSorted);
 
-function showFiltered() {
-  console.log(showFiltered);
-  const gender = this.dataset.gender;
+function showSorted(event) {
+  const direction = event.target.dataset.direction;
+  if (direction == "lo-hi") {
+    allData.sort((a, b) => a.price - b.price);
+    console.log(allData);
+  } else {
+    allData.sort((a, b) => b.price - a.price);
+  }
+  const sorted = allData.filter((product) => product.direction == direction);
+  showProds(allData);
+}
+
+function showFiltered(event) {
+  console.log(event.target.dataset.gender);
+  const gender = event.target.dataset.gender;
   if (gender == "All") {
     showProds(allData);
   } else {
